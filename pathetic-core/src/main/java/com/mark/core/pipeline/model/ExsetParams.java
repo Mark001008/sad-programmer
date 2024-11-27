@@ -11,16 +11,16 @@ import lombok.Data;
 @Data
 public class ExsetParams {
 
-	private Object obj;
+    private Object obj;
 
-	public ExsetParams nx() {
-		// 实现 nx 方法逻辑
-		return this;
-	}
+    public ExsetParams nx() {
+        // 实现 nx 方法逻辑
+        return this;
+    }
 
-	public ExsetParams ex(Object obj) {
-		this.obj = obj;
-		return this;
-	}
+    public ExsetParams ex(Object obj) {
+        this.obj = obj;
+        return this;
+    }
 
 }

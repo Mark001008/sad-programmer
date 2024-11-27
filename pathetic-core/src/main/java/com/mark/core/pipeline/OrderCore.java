@@ -14,15 +14,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderCore {
 
-	public Long createOrder(OrderInfoBO createOrder) {
-		return null;
-	}
+    public Long createOrder(OrderInfoBO createOrder) {
+        return null;
+    }
 
-	public CreateOrderHistoryBO buildHistory(OrderInfoBO orderInfoBO) {
-		return null;
-	}
+    public CreateOrderHistoryBO buildHistory(OrderInfoBO orderInfoBO) {
+        return null;
+    }
 
-	public Long createHistory(CreateOrderHistoryBO historyDTO) {
-		return null;
-	}
+    public Long createHistory(CreateOrderHistoryBO historyDTO) {
+        return null;
+    }
 }

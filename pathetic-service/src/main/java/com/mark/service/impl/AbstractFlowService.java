@@ -17,15 +17,15 @@ import javax.annotation.Resource;
 @Service
 public abstract class AbstractFlowService implements FlowService {
 
-	@Resource
-	private FlowExecutor flowExecutor;
+    @Resource
+    private FlowExecutor flowExecutor;
 
-	@Override
-	public void execute(String bizCode) {
+    @Override
+    public void execute(String bizCode) {
 
-	}
+    }
 
-	public void testConfig() {
-		LiteflowResponse response = flowExecutor.execute2Resp("chain1", "arg");
-	}
+    public void testConfig() {
+        LiteflowResponse response = flowExecutor.execute2Resp("chain1", "arg");
+    }
 }

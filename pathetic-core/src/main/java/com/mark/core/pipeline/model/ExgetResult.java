@@ -11,5 +11,5 @@ import lombok.Data;
 @Data
 public class ExgetResult<T> {
 
-	private String value;
+    private String value;
 }

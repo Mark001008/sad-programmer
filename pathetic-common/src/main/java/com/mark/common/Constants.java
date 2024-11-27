@@ -8,5 +8,5 @@ package com.mark.common;
  */
 public interface Constants {
 
-	String APP_NAME = "pathetic";
+    String APP_NAME = "pathetic";
 }

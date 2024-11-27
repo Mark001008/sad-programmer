@@ -8,10 +8,10 @@ package com.mark.service;
  */
 public interface FlowService extends BasicService {
 
-	/**
-	 * 执行流程编排
-	 *
-	 * @param bizCode 业务编码
-	 */
-	void execute(String bizCode);
+    /**
+     * 执行流程编排
+     *
+     * @param bizCode 业务编码
+     */
+    void execute(String bizCode);
 }

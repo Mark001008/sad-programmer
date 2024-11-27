@@ -16,37 +16,37 @@ import java.nio.file.Files;
  */
 public class FileUtil {
 
-	private static final String ENCODING = "UTF-8";
+    private static final String ENCODING = "UTF-8";
 
-	public static String readTxtFile(String filePath) throws IOException {
-		StringBuilder stringBuffer = new StringBuilder();
-		InputStreamReader readStream = null;
-		try {
-			File file = new File(filePath);
-			if (file.isFile() && file.exists()) {
-				readStream = new InputStreamReader(Files.newInputStream(file.toPath()), ENCODING);
-				BufferedReader bufferedReader = new BufferedReader(readStream);
-				String lineTxt;
-				while ((lineTxt = bufferedReader.readLine()) != null) {
-					stringBuffer.append(lineTxt);
-					stringBuffer.append(",");
-				}
-				stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-				readStream.close();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return stringBuffer.toString();
-	}
+    public static String readTxtFile(String filePath) throws IOException {
+        StringBuilder stringBuffer = new StringBuilder();
+        InputStreamReader readStream = null;
+        try {
+            File file = new File(filePath);
+            if (file.isFile() && file.exists()) {
+                readStream = new InputStreamReader(Files.newInputStream(file.toPath()), ENCODING);
+                BufferedReader bufferedReader = new BufferedReader(readStream);
+                String lineTxt;
+                while ((lineTxt = bufferedReader.readLine()) != null) {
+                    stringBuffer.append(lineTxt);
+                    stringBuffer.append(",");
+                }
+                stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+                readStream.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return stringBuffer.toString();
+    }
 
-	@Test
-	public void testReadTxtFile() {
-		String filePath = "D:\\file.txt";
-		try {
-			readTxtFile(filePath);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    @Test
+    public void testReadTxtFile() {
+        String filePath = "D:\\file.txt";
+        try {
+            readTxtFile(filePath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -10,13 +10,12 @@ import com.mark.core.pipeline.model.BaseContext;
  */
 public interface Stage<T extends BaseContext> {
 
-	/**
-	 * 执行当前阶段的逻辑
-	 *
-	 * @param context 上下文
-	 *
-	 * @return 执行结果
-	 */
-	T execute(T context);
+    /**
+     * 执行当前阶段的逻辑
+     *
+     * @param context 上下文
+     * @return 执行结果
+     */
+    T execute(T context);
 
 }

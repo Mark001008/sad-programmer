@@ -8,16 +8,16 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class CreateOrderContext extends BaseContext {
 
-	/**
-	 * 订单信息
-	 */
-	private OrderInfoBO orderInfo;
+    /**
+     * 订单信息
+     */
+    private OrderInfoBO orderInfo;
 
-	/**
-	 * 构建返回结果
-	 */
-	public CreateOrderContext ofResult(StageProcessedResultEnum result) {
-		super.setResult(result);
-		return this;
-	}
+    /**
+     * 构建返回结果
+     */
+    public CreateOrderContext ofResult(StageProcessedResultEnum result) {
+        super.setResult(result);
+        return this;
+    }
 }

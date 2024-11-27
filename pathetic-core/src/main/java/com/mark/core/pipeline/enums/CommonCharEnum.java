@@ -12,13 +12,13 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CommonCharEnum {
-	/**
-	 * 减号
-	 */
-	MINUS("MINUS", 1);
+    /**
+     * 减号
+     */
+    MINUS("MINUS", 1);
 
-	private final String value;
+    private final String value;
 
-	private final Integer code;
+    private final Integer code;
 
 }

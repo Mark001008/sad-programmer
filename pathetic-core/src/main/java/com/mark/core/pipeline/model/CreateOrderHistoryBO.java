@@ -11,8 +11,8 @@ import lombok.Data;
 @Data
 public class CreateOrderHistoryBO {
 
-	private Integer paidCntLeft;
+    private Integer paidCntLeft;
 
-	private Integer count;
+    private Integer count;
 
 }

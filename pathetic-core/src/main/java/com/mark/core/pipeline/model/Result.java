@@ -11,9 +11,9 @@ import lombok.Data;
 @Data
 public class Result<T> {
 
-	private T data;
+    private T data;
 
-	public static Result<Boolean> success(boolean success) {
-		return new Result<>();
-	}
+    public static Result<Boolean> success(boolean success) {
+        return new Result<>();
+    }
 }

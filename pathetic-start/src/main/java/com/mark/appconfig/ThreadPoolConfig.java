@@ -18,10 +18,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ThreadPoolConfig {
 
-	@Bean(name = "myExecutor")
-	public ThreadPoolExecutor myExecutor() {
-		return new ThreadPoolExecutor(5, 10, 10, TimeUnit.SECONDS, new LinkedBlockingQueue<>(),
-				new ThreadFactoryBuilder().setNameFormat("Apply_Pass_Thread-%d").build(),
-				new ThreadPoolExecutor.CallerRunsPolicy());
-	}
+    @Bean(name = "myExecutor")
+    public ThreadPoolExecutor myExecutor() {
+        return new ThreadPoolExecutor(5, 10, 10, TimeUnit.SECONDS, new LinkedBlockingQueue<>(),
+                new ThreadFactoryBuilder().setNameFormat("Apply_Pass_Thread-%d").build(),
+                new ThreadPoolExecutor.CallerRunsPolicy());
+    }
 }

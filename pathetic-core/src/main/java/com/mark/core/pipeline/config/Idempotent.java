@@ -10,12 +10,11 @@ import com.mark.core.pipeline.model.BaseContext;
  */
 public interface Idempotent<T extends BaseContext> {
 
-	/**
-	 * 获取幂等key，返回null代表不需要幂等
-	 *
-	 * @param context 上下文
-	 *
-	 * @return 幂等key
-	 */
-	String getIdempotentKey(T context);
+    /**
+     * 获取幂等key，返回null代表不需要幂等
+     *
+     * @param context 上下文
+     * @return 幂等key
+     */
+    String getIdempotentKey(T context);
 }

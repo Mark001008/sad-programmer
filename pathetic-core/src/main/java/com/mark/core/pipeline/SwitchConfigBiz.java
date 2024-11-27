@@ -16,25 +16,25 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SwitchConfigBiz {
 
 
-	public static final Object PIPE_LINE_IDEMPOTENT_EXPIRE_TIME = null;
+    public static final Object PIPE_LINE_IDEMPOTENT_EXPIRE_TIME = null;
 
-	/**
-	 * 业务执行链路
-	 */
-	@AppSwitch(des = "pipeline中不同业务的执行链路配置")
-	public static final Map<String, List<String>> PIPE_LINE_BIZ_EXECUTE_CHAIN = new ConcurrentHashMap<>();
+    /**
+     * 业务执行链路
+     */
+    @AppSwitch(des = "pipeline中不同业务的执行链路配置")
+    public static final Map<String, List<String>> PIPE_LINE_BIZ_EXECUTE_CHAIN = new ConcurrentHashMap<>();
 
 
-	static {
-		/**
-		 * 创建订单
-		 */
-		PIPE_LINE_BIZ_EXECUTE_CHAIN.put("createOrder", Arrays.asList(
-				// 创建权益卡
-				"CreateOrder",
-				// 创建流水记录
-				"CreateOrderHistory"));
-	}
+    static {
+        /**
+         * 创建订单
+         */
+        PIPE_LINE_BIZ_EXECUTE_CHAIN.put("createOrder", Arrays.asList(
+                // 创建权益卡
+                "CreateOrder",
+                // 创建流水记录
+                "CreateOrderHistory"));
+    }
 
 
 }

@@ -15,16 +15,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-	private final OrderFactory orderFactory;
+    private final OrderFactory orderFactory;
 
-	@Override
-	public Result<Boolean> createOrder(String bizCode) {
+    @Override
+    public Result<Boolean> createOrder(String bizCode) {
 
-		OrderContext context = new OrderContext();
-		context.setOrderId(bizCode);
+        OrderContext context = new OrderContext();
+        context.setOrderId(bizCode);
 
-		context = orderFactory.execute(context, "createOrder");
+        context = orderFactory.execute(context, "createOrder");
 
-		return Result.success(context.getResult().isSuccess());
-	}
+        return Result.success(context.getResult().isSuccess());
+    }
 }

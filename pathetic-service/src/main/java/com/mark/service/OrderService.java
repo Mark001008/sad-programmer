@@ -10,12 +10,11 @@ import com.mark.core.pipeline.model.Result;
  */
 public interface OrderService extends BasicService {
 
-	/**
-	 * 创建订单
-	 *
-	 * @param bizCode 业务线
-	 *
-	 * @return 消费额度是否成功
-	 */
-	Result<Boolean> createOrder(String bizCode);
+    /**
+     * 创建订单
+     *
+     * @param bizCode 业务线
+     * @return 消费额度是否成功
+     */
+    Result<Boolean> createOrder(String bizCode);
 }

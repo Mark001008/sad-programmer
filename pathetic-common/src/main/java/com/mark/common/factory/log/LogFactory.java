@@ -15,30 +15,30 @@ import org.slf4j.LoggerFactory;
  */
 public class LogFactory {
 
-	private static final Map<String, LFLog> LOG_MAP = new HashMap<>();
+    private static final Map<String, LFLog> LOG_MAP = new HashMap<>();
 
-	private static final TransmittableThreadLocal<String> REQUEST_ID_TL = new TransmittableThreadLocal<>();
+    private static final TransmittableThreadLocal<String> REQUEST_ID_TL = new TransmittableThreadLocal<>();
 
-	public static LFLog getLogger(Class<?> clazz) {
-		if (LOG_MAP.containsKey(clazz.getName())) {
-			return LOG_MAP.get(clazz.getName());
-		} else {
-			Logger log = LoggerFactory.getLogger(clazz.getName());
-			LFLog lfLog = new LFLog(log);
-			LOG_MAP.put(clazz.getName(), lfLog);
-			return lfLog;
-		}
-	}
+    public static LFLog getLogger(Class<?> clazz) {
+        if (LOG_MAP.containsKey(clazz.getName())) {
+            return LOG_MAP.get(clazz.getName());
+        } else {
+            Logger log = LoggerFactory.getLogger(clazz.getName());
+            LFLog lfLog = new LFLog(log);
+            LOG_MAP.put(clazz.getName(), lfLog);
+            return lfLog;
+        }
+    }
 
-	public static void setRequestId(String requestId) {
-		REQUEST_ID_TL.set(requestId);
-	}
+    public static void setRequestId(String requestId) {
+        REQUEST_ID_TL.set(requestId);
+    }
 
-	public static String getRequestId() {
-		return REQUEST_ID_TL.get();
-	}
+    public static String getRequestId() {
+        return REQUEST_ID_TL.get();
+    }
 
-	public static void removeRequestId() {
-		REQUEST_ID_TL.remove();
-	}
+    public static void removeRequestId() {
+        REQUEST_ID_TL.remove();
+    }
 }

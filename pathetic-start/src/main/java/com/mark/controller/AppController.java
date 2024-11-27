@@ -19,18 +19,18 @@ import javax.annotation.Resource;
 @RequestMapping("/app")
 public class AppController {
 
-	@Resource
-	private FlowExecutor flowExecutor;
+    @Resource
+    private FlowExecutor flowExecutor;
 
-	@GetMapping("/hello")
-	public String sayHello() {
-		return "hello world";
-	}
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "hello world";
+    }
 
 
-	@GetMapping("/flow.test")
-	public void testConfig() {
-		LiteflowResponse response = flowExecutor.execute2Resp("chain1", "arg");
-		System.out.println(response.toString());
-	}
+    @GetMapping("/flow.test")
+    public void testConfig() {
+        LiteflowResponse response = flowExecutor.execute2Resp("chain1", "arg");
+        System.out.println(response.toString());
+    }
 }

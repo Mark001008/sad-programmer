@@ -14,14 +14,14 @@ import java.util.Map;
 @Data
 public class BaseContext {
 
-	/**
-	 * 扩展信息
-	 */
-	private Map<String, String> extInfo;
+    /**
+     * 扩展信息
+     */
+    private Map<String, String> extInfo;
 
-	/**
-	 * 处理结果
-	 */
-	private StageProcessedResultEnum result;
+    /**
+     * 处理结果
+     */
+    private StageProcessedResultEnum result;
 
 }

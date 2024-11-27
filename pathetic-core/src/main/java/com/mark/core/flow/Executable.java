@@ -8,13 +8,12 @@ package com.mark.core.flow;
  */
 public interface Executable {
 
-	/**
-	 * 执行
-	 *
-	 * @param slotIndex 插槽索引
-	 *
-	 * @throws Exception 执行异常
-	 */
-	void execute(Integer slotIndex) throws Exception;
+    /**
+     * 执行
+     *
+     * @param slotIndex 插槽索引
+     * @throws Exception 执行异常
+     */
+    void execute(Integer slotIndex) throws Exception;
 
 }

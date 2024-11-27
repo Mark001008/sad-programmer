@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 @Component("c")
 public class CCmp extends NodeComponent {
 
-	@Override
-	public void process() {
-		//do your business
-		System.out.println("do C cmp");
-	}
+    @Override
+    public void process() {
+        //do your business
+        System.out.println("do C cmp");
+    }
 }

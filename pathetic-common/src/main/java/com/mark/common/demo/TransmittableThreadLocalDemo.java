@@ -18,19 +18,19 @@ import com.mark.common.factory.log.LogFactory;
  */
 public class TransmittableThreadLocalDemo {
 
-	private static final LFLog LOG = LogFactory.getLogger(TransmittableThreadLocalDemo.class);
+    private static final LFLog LOG = LogFactory.getLogger(TransmittableThreadLocalDemo.class);
 
-	@Resource
-	private static ThreadPoolExecutor myExecutor;
+    @Resource
+    private static ThreadPoolExecutor myExecutor;
 
 
-	public static void main(String[] args) {
-		TransmittableThreadLocal<String> ttl = new TransmittableThreadLocal<>();
-		ttl.set("value");
-		myExecutor.submit(TtlRunnable.get(() -> {
-			String value = ttl.get();
-			// 使用传递过来的值
-			LOG.info("Value from TransmittableThreadLocal: " + value);
-		}));
-	}
+    public static void main(String[] args) {
+        TransmittableThreadLocal<String> ttl = new TransmittableThreadLocal<>();
+        ttl.set("value");
+        myExecutor.submit(TtlRunnable.get(() -> {
+            String value = ttl.get();
+            // 使用传递过来的值
+            LOG.info("Value from TransmittableThreadLocal: " + value);
+        }));
+    }
 }

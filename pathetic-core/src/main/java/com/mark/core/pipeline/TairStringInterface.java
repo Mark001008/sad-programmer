@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class TairStringInterface {
 
-	public ExgetResult<String> exget(String key) {
-		ExgetResult<String> result = new ExgetResult<>();
-		result.setValue(key);
-		return result;
-	}
+    public ExgetResult<String> exget(String key) {
+        ExgetResult<String> result = new ExgetResult<>();
+        result.setValue(key);
+        return result;
+    }
 
-	public String exset(String key, String s, ExsetParams params) {
-		return key + s + params.toString();
-	}
+    public String exset(String key, String s, ExsetParams params) {
+        return key + s + params.toString();
+    }
 }

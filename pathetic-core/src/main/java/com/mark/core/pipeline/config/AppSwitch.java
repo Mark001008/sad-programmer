@@ -8,5 +8,5 @@ package com.mark.core.pipeline.config;
  */
 public @interface AppSwitch {
 
-	String des();
+    String des();
 }

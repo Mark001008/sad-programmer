@@ -8,6 +8,6 @@ package com.mark.common.factory.log;
  */
 public interface SpiPriority {
 
-	int priority();
+    int priority();
 
 }

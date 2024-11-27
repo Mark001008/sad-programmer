@@ -8,11 +8,11 @@ package com.mark.common.leetcode.sort;
  */
 public interface Sort {
 
-	/**
-	 * 排序
-	 *
-	 * @param nums 待排序数据
-	 */
-	void sort(int[] nums);
+    /**
+     * 排序
+     *
+     * @param nums 待排序数据
+     */
+    void sort(int[] nums);
 
 }

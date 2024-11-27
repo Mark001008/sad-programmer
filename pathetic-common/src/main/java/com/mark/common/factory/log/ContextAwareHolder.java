@@ -15,20 +15,20 @@ import cn.hutool.core.util.ObjectUtil;
  */
 public class ContextAwareHolder {
 
-	private static ContextAware contextAware;
+    private static ContextAware contextAware;
 
-	public static ContextAware loadContextAware() {
-		if (ObjectUtil.isNull(contextAware)) {
-			List<ContextAware> list = new ArrayList<>();
-			ServiceLoader.load(ContextAware.class).forEach(list::add);
-			list.sort(Comparator.comparingInt(ContextAware::priority));
-			contextAware = list.get(0);
-		}
-		return contextAware;
-	}
+    public static ContextAware loadContextAware() {
+        if (ObjectUtil.isNull(contextAware)) {
+            List<ContextAware> list = new ArrayList<>();
+            ServiceLoader.load(ContextAware.class).forEach(list::add);
+            list.sort(Comparator.comparingInt(ContextAware::priority));
+            contextAware = list.get(0);
+        }
+        return contextAware;
+    }
 
-	public static void clean() {
-		contextAware = null;
-	}
+    public static void clean() {
+        contextAware = null;
+    }
 
 }

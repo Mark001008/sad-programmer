@@ -11,14 +11,14 @@ import lombok.Data;
 @Data
 public class OrderInfoBO {
 
-	private char[] userId;
+    private char[] userId;
 
-	private Long id;
+    private Long id;
 
-	private String idempotentKey;
+    private String idempotentKey;
 
-	private String bizCode;
+    private String bizCode;
 
-	private String templateCode;
+    private String templateCode;
 
 }

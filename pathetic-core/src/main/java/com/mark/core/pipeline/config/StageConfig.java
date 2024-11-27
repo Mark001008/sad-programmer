@@ -16,8 +16,8 @@ import java.lang.annotation.*;
 @Component
 public @interface StageConfig {
 
-	/**
-	 * 阶段名称
-	 */
-	String name();
+    /**
+     * 阶段名称
+     */
+    String name();
 }
