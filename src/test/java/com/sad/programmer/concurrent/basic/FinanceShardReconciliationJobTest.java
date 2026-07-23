@@ -31,13 +31,7 @@ public class FinanceShardReconciliationJobTest {
 
             FinanceShardReconciliationResult result = job.reconcile(
                     4,
-                    new FinanceShardReconciliationJob.ShardProcessor() {
-                        public void process(int shardNo) {
-                            if (shardNo == 2) {
-                                throw new IllegalStateException("mock shard failure");
-                            }
-                        }
-                    },
+                    shardNo -> { if (shardNo == 2) { throw new IllegalStateException("mock shard failure"); } },
                     1,
                     TimeUnit.SECONDS);
 
@@ -63,12 +57,10 @@ public class FinanceShardReconciliationJobTest {
 
             FinanceShardReconciliationResult result = job.reconcile(
                     2,
-                    new FinanceShardReconciliationJob.ShardProcessor() {
-                        public void process(int shardNo) throws Exception {
-                            if (shardNo == 1) {
-                                // 阻塞一个分片，模拟下游数据库或账务文件处理长时间无响应。
-                                releaseSlowShard.await();
-                            }
+                    shardNo -> {
+                        if (shardNo == 1) {
+                            // 阻塞一个分片，模拟下游数据库或账务文件处理长时间无响应。
+                            releaseSlowShard.await();
                         }
                     },
                     100,
@@ -92,11 +84,7 @@ public class FinanceShardReconciliationJobTest {
      */
     private ThreadPoolExecutor newExecutor(final String prefix, int poolSize) {
         final AtomicInteger sequence = new AtomicInteger();
-        ThreadFactory threadFactory = new ThreadFactory() {
-            public Thread newThread(Runnable r) {
-                return new Thread(r, prefix + sequence.incrementAndGet());
-            }
-        };
+        ThreadFactory threadFactory = r -> new Thread(r, prefix + sequence.incrementAndGet());
         return new ThreadPoolExecutor(
                 poolSize,
                 poolSize,

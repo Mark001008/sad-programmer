@@ -56,11 +56,7 @@ public class FutureTaskTest {
      */
     @Test
     public void shouldReturnResultWhenFutureTaskCompletes() throws Exception {
-        FutureTask<String> task = new FutureTask<String>(new Callable<String>() {
-            public String call() {
-                return "OK";
-            }
-        });
+        FutureTask<String> task = new FutureTask<String>(() -> "OK");
 
         executor.execute(task);
 
@@ -77,11 +73,9 @@ public class FutureTaskTest {
     @Test
     public void shouldTimeoutWhenFutureTaskNotDone() throws Exception {
         final CountDownLatch releaseTask = new CountDownLatch(1);
-        FutureTask<String> task = new FutureTask<String>(new Callable<String>() {
-            public String call() throws Exception {
-                releaseTask.await();
-                return "DONE";
-            }
+        FutureTask<String> task = new FutureTask<String>(() -> {
+            releaseTask.await();
+            return "DONE";
         });
 
         executor.execute(task);
@@ -110,18 +104,16 @@ public class FutureTaskTest {
         final CountDownLatch keepRunning = new CountDownLatch(1);
         final AtomicBoolean interruptedFlag = new AtomicBoolean(false);
 
-        FutureTask<String> task = new FutureTask<String>(new Callable<String>() {
-            public String call() throws Exception {
-                runnerStarted.countDown();
-                try {
-                    keepRunning.await();
-                    return "SHOULD_NOT_RETURN";
-                } catch (InterruptedException e) {
-                    // cancel(true) 只负责发出中断信号，任务要正确响应中断才会尽快退出。
-                    interruptedFlag.set(true);
-                    interrupted.countDown();
-                    throw e;
-                }
+        FutureTask<String> task = new FutureTask<String>(() -> {
+            runnerStarted.countDown();
+            try {
+                keepRunning.await();
+                return "SHOULD_NOT_RETURN";
+            } catch (InterruptedException e) {
+                // cancel(true) 只负责发出中断信号，任务要正确响应中断才会尽快退出。
+                interruptedFlag.set(true);
+                interrupted.countDown();
+                throw e;
             }
         });
 

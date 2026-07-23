@@ -27,9 +27,10 @@ public class TransferAccount {
     /**
      * 账户余额，单位为分。
      *
-     * <p>该字段只能在持有 {@link #lock} 的情况下修改。</p>
+     * <p>声明为 volatile，保证无锁读取时也能看到最新值。
+     * 修改操作仍需在持有 {@link #lock} 的情况下进行。</p>
      */
-    private long balanceCents;
+    private volatile long balanceCents;
 
     /**
      * 创建账户。
@@ -60,7 +61,8 @@ public class TransferAccount {
     /**
      * 返回当前余额。
      *
-     * <p>测试场景在任务完成后读取余额。生产代码若存在并发读取，也应在锁保护下读取。</p>
+     * <p>字段声明为 volatile，即使不在锁保护下读取也能保证可见性。
+     * 测试场景通过 Future.get() 建立 happens-before 关系后读取余额。</p>
      *
      * @return 当前余额，单位为分
      */

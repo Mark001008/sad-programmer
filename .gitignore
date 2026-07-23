@@ -76,3 +76,6 @@ application-*.local.properties
 *.pid
 *.seed
 *.pid.lock
+
+# Database config (contains passwords)
+src/main/resources/db.properties

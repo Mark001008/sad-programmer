@@ -133,11 +133,7 @@ public class OrderDetailFutureServiceTest {
      * @return 查询任务
      */
     private static Callable<String> constantTask(final String value) {
-        return new Callable<String>() {
-            public String call() {
-                return value;
-            }
-        };
+        return () -> value;
     }
 
     /**
@@ -146,11 +142,7 @@ public class OrderDetailFutureServiceTest {
      * @return 查询任务
      */
     private static Callable<String> failedTask() {
-        return new Callable<String>() {
-            public String call() {
-                throw new IllegalStateException("inventory service unavailable");
-            }
-        };
+        return () -> { throw new IllegalStateException("inventory service unavailable"); };
     }
 
     /**
@@ -160,11 +152,9 @@ public class OrderDetailFutureServiceTest {
      * @return 查询任务
      */
     private static Callable<String> blockingTask(final CountDownLatch releaseSlowTask) {
-        return new Callable<String>() {
-            public String call() throws Exception {
-                releaseSlowTask.await();
-                return "ORDER_LATE";
-            }
+        return () -> {
+            releaseSlowTask.await();
+            return "ORDER_LATE";
         };
     }
 

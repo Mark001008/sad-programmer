@@ -60,12 +60,10 @@ public class OrderQueryAggregationServiceTest {
             OrderQueryAggregationService service = new OrderQueryAggregationService(executor);
             List<OrderQueryAggregationService.NamedQueryTask> tasks = Arrays.asList(
                     task("order", "ORDER_OK"),
-                    new OrderQueryAggregationService.NamedQueryTask("payment", new Callable<String>() {
-                        public String call() throws Exception {
-                            // 阻塞慢下游，模拟支付系统查询超时。
-                            releaseSlowTask.await();
-                            return "PAID";
-                        }
+                    new OrderQueryAggregationService.NamedQueryTask("payment", () -> {
+                        // 阻塞慢下游，模拟支付系统查询超时。
+                        releaseSlowTask.await();
+                        return "PAID";
                     })
             );
 
@@ -88,11 +86,7 @@ public class OrderQueryAggregationServiceTest {
      * @return 下游查询任务
      */
     private OrderQueryAggregationService.NamedQueryTask task(final String name, final String value) {
-        return new OrderQueryAggregationService.NamedQueryTask(name, new Callable<String>() {
-            public String call() {
-                return value;
-            }
-        });
+        return new OrderQueryAggregationService.NamedQueryTask(name, () -> value);
     }
 
     /**
@@ -104,11 +98,7 @@ public class OrderQueryAggregationServiceTest {
      */
     private ThreadPoolExecutor newExecutor(final String prefix, int poolSize) {
         final AtomicInteger sequence = new AtomicInteger();
-        ThreadFactory threadFactory = new ThreadFactory() {
-            public Thread newThread(Runnable r) {
-                return new Thread(r, prefix + sequence.incrementAndGet());
-            }
-        };
+        ThreadFactory threadFactory = r -> new Thread(r, prefix + sequence.incrementAndGet());
         return new ThreadPoolExecutor(
                 poolSize,
                 poolSize,

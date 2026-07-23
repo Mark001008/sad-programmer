@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>sad-programmer</name>
-    <description>Java concurrency interview practice project</description>
+    <description>Java backend interview practice project</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -24,6 +24,11 @@
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
         </dependency>
     </dependencies>
 </project>
