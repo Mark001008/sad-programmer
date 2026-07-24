@@ -79,3 +79,4 @@ application-*.local.properties
 
 # Database config (contains passwords)
 src/main/resources/db.properties
+src/main/resources/redis.properties

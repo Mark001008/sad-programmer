@@ -23,6 +23,7 @@ import java.sql.Statement;
  */
 public class TransactionIsolationDemo {
 
+    /** 演示用的表名。 */
     private static final String TABLE = "account_demo";
 
     /**
