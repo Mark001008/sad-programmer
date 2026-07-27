@@ -64,3 +64,25 @@ Java 后端面试练习项目。
 ## Guidelines
 
 External middleware tasks should start with interface-based or in-memory simulations. Add real client dependencies only when a task explicitly needs them.
+
+## 库存专题
+
+高并发场景下的库存扣减方案，包括：
+- 5 种库存扣减方案对比
+- 超卖问题解决方案
+- 秒杀场景库存设计
+- 分布式库存系统架构
+- Redis 预扣 + 消息队列异步方案
+
+详细内容见：[库存专题](src/main/java/com/sad/programmer/business/inventory/库存专题.md)
+
+## 库存模块
+
+基于库存专题的代码实现，包括：
+- 库存实体和结果类
+- 库存服务接口和实现
+- Redis 库存服务（Lua 脚本原子扣减）
+- 库存扣减、预留、释放、查询等功能
+
+详细内容见：
+- [库存专题.md](src/main/java/com/sad/programmer/business/inventory/库存专题.md)
