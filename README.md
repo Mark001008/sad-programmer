@@ -12,7 +12,7 @@ Java 后端面试练习项目。
 
 ## Practice Areas
 
-| Module | Package | Status | INTERVIEW.md | Description |
+| Module | Package | Status | 专题.md | Description |
 |--------|---------|--------|--------------|-------------|
 | concurrent | `com.sad.programmer.concurrent` | ✅ | ✅ 26 题 | 并发、锁、原子类、线程池、Future |
 | collection | `com.sad.programmer.collection` | ✅ | ✅ 18 题 | 集合框架、HashMap、ArrayList、队列 |
@@ -23,19 +23,19 @@ Java 后端面试练习项目。
 | business | `com.sad.programmer.business` | 📝 | ✅ 20 题 | 订单、库存、支付、转账、对账 |
 
 > ✅ = 已实现 | 📝 = 已规划，待实现代码
-> 每个模块的 `INTERVIEW.md` 包含高频面试题及参考答案
+> 每个模块的 `XXX专题.md` 包含高频面试题及参考答案
 
 ## Interview Questions
 
-每个子模块目录下都有 `INTERVIEW.md`，覆盖该模块高频面试题：
+每个子模块目录下都有对应的专题文档，覆盖该模块高频面试题：
 
-- `concurrent/INTERVIEW.md` — 线程、AQS、锁、线程池、CAS、死锁
-- `collection/INTERVIEW.md` — HashMap 原理、ArrayList vs LinkedList、fail-fast、队列
-- `database/INTERVIEW.md` — 索引、事务/MVCC、锁、分页、主从复制
-- `jvm/INTERVIEW.md` — 内存模型、GC、类加载、JVM 调优
-- `redis/INTERVIEW.md` — 数据结构、持久化、缓存问题、分布式锁、集群
-- `mq/INTERVIEW.md` — Kafka/RocketMQ 架构、事务消息、延迟消息、幂等
-- `business/INTERVIEW.md` — 订单系统、库存扣减、支付回调、转账、对账
+- `concurrent/并发编程专题.md` — 线程、AQS、锁、线程池、CAS、死锁
+- `collection/集合专题.md` — HashMap 原理、ArrayList vs LinkedList、fail-fast、队列
+- `database/数据库专题.md` — 索引、事务/MVCC、锁、分页、主从复制
+- `jvm/JVM专题.md` — 内存模型、GC、类加载、JVM 调优
+- `redis/Redis专题.md` — 数据结构、持久化、缓存问题、分布式锁、集群
+- `mq/消息队列专题.md` — Kafka/RocketMQ 架构、事务消息、延迟消息、幂等
+- `business/业务设计专题.md` — 订单系统、库存扣减、支付回调、转账、对账
 
 ## Module Details
 
